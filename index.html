@@ -535,7 +535,43 @@
       transition: 0.3s ease;
     }
 
-    .btn-submit:hover {
+  .btn-submit:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+}
+
+/* --- LIGHTBOX MODAL STYLES --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.album-img {
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  #home, #about, .contact-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
     }
 
