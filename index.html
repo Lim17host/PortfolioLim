@@ -762,27 +762,10 @@
 
     </div> <!-- Dito lang dapat isasara ang portfolio-grid, kapag tapos na ang LAHAT ng cards -->
 </section>
-  </section><!-- Lightbox Modal Box -->
-<div id="imageModal" class="modal" onclick="closeModal()">
-  <span class="close-btn">&times;</span>
-  <img class="modal-content" id="fullImage">
-</div>
 
-<script>
-function openModal(imgElement) {
-  var modal = document.getElementById("imageModal");
-  var modalImg = document.getElementById("fullImage");
-  modal.style.display = "flex";
-  modalImg.src = imgElement.src;
-}
 
-function closeModal() {
-  document.getElementById("imageModal").style.display = "none";
-}
-</script>
-
-  <!-- Gear & Editing Skills Section -->
-  <section id="skills">
+<!-- Gear & Editing Skills Section -->
+<section id="skills">
     <h2 class="section-title">Gear & <span>Tools</span></h2>
     <div class="skills-grid">
       <div class="skill-card">
@@ -837,7 +820,7 @@ function closeModal() {
         </div>
       </div>
 
-      <form class="contact-form" action="https://formspree.io/f/mdenpnvp" method="POST">
+ <form class="contact-form" action="https://formspree.io/f/mdenpnvp" method="POST">
   <div class="form-group">
     <input type="text" name="name" placeholder="Your Name" required>
   </div>
@@ -849,8 +832,27 @@ function closeModal() {
   </div>
   <button type="submit" class="btn-submit">Send Booking Inquiry</button>
 </form>
-    </div>
-  </section>
+</div>
+</section>
+
+<!-- Lightbox Modal Box -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close-btn">&times;</span>
+  <img class="modal-content" id="fullImage">
+</div>
+
+<script>
+function openModal(imgElement) {
+  var modal = document.getElementById("imageModal");
+  var modalImg = document.getElementById("fullImage");
+  modal.style.display = "flex";
+  modalImg.src = imgElement.src;
+}
+
+function closeModal() {
+  document.getElementById("imageModal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
