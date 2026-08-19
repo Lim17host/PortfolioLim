@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography Portfolio</title>
+  <style>.view-album-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #ac2020;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.view-album-btn:hover {
+  background-color: #e02222;
+}
+    /* Global Reset & Base */
+    * {
+      margin: 7;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #080808;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      background-color: rgba(13, 13, 13, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ff2a2a;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #ffffff;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 10px;
+      background: #121212;
+      padding: 6px 12px;
+      border-radius: 30px;
+      border: 1px solid #222;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #aaaaaa;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    nav a:hover, nav a.active {
+      color: #ffffff;
+      background-color: #ff2a2a;
+      box-shadow: 0 0 15px rgba(255, 42, 42, 0.6);
+    }
+
+    /* Common Section Setup */
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: #ff2a2a;
+    }
+
+    /* --- HERO SECTION --- */
+    #home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 90vh;
+  gap: 40px;
+  
+  /* NEON RED GLOW BACKGROUND */
+  background: radial-gradient(circle at 80% 50%, rgba(255, 42, 42, 0.15) 0%, rgba(8, 8, 8, 1) 70%);
+}
+
+    .hero-content {
+      max-width: 550px;
+    }
+
+    .greeting {
+      font-size: 16px;
+      color: #cccccc;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .headline {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .headline span {
+      color: #ff2a2a;
+    }
+
+    .description {
+      color: #888888;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .stats-container {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 35px;
+    }
+
+    .stat-card {
+      background-color: #121212;
+      border: 1px solid #222222;
+      border-radius: 12px;
+      padding: 15px 20px;
+      text-align: center;
+      flex: 1;
+    }
+
+    .stat-number {
+      font-size: 26px;
+      font-weight: 700;
+      color: #ff2a2a;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #777777;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .btn-primary {
+      background-color: #ff2a2a;
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 0 15px rgba(255, 42, 42, 0.4);
+      transition: 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 25px rgba(255, 42, 42, 0.8);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid #ff2a2a;
+      transition: 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 42, 42, 0.1);
+    }
+
+    .hero-visual {
+      position: relative;
+      width: 500px;
+      height: 690px;
+      background-color: #121212;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 42, 42, 0.3);
+      box-shadow: 0 0 30px rgba(255, 42, 42, 0.15);
+      overflow: hidden;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .badge {
+      position: absolute;
+      background: rgba(20, 20, 20, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .badge-top { top: 25px; left: 15px; }
+    .badge-bottom { bottom: 25px; right: 15px; }
+
+    /* --- ABOUT SECTION --- */
+    #about {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      background-color: #0b0b0b;
+    }
+
+    .about-image-container {
+      width: 340px;
+      height: 420px;
+      background: #121212;
+      border-radius: 20px;
+      border: 1px solid #ff2a2a44;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .info-card {
+      background: #121212;
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 16px 22px;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .info-card-icon {
+      color: #ff2a2a;
+      font-size: 20px;
+    }
+
+    .info-card h4 {
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .info-card p {
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* --- SERVICES SECTION --- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: #121212;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: #ff2a2a;
+      box-shadow: 0 0 20px rgba(255, 42, 42, 0.2);
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      background: #ff2a2a;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-weight: bold;
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: rgba(255, 42, 42, 0.15);
+      color: #ff2a2a;
+      border: 1px solid rgba(255, 42, 42, 0.4);
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+  #projects {
+    background: #0b0b0b;
+    padding: 60px 20px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Pilitin maging 3-columns */
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-card {
+    background: #121212;
+    border: 1px solid #222;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.portfolio-card:hover {
+    border-color: #ff2a2a;
+    box-shadow: 0 0 20px rgba(255, 42, 42, 0.2);
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsiveness para sa Mobile/Tablet */
+@media (max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+    .portfolio-info p {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    /* --- SKILLS / GEAR SECTION --- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: #121212;
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: 0.3s ease;
+    }
+
+    .skill-card:hover {
+      border-color: #ff2a2a;
+    }
+
+    .skill-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 42, 42, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff2a2a;
+      font-weight: bold;
+    }
+
+    .skill-info h4 {
+      font-size: 14px;
+    }
+
+    .skill-info span {
+      font-size: 11px;
+      color: #666;
+    }
+
+    /* --- CONTACT SECTION --- */
+    #contact {
+      background: #0b0b0b;
+    }
+
+    .contact-container {
+      display: flex;
+      gap: 40px;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info p {
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .contact-card {
+      background: #121212;
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .contact-card:hover {
+      border-color: #ff2a2a;
+      background: #151010;
+    }
+
+    .contact-card h4 {
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .contact-card span {
+      font-size: 11px;
+      color: #ff2a2a;
+    }
+
+    .contact-form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: #121212;
+      border: 1px solid #222;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .form-group textarea {
+      border-radius: 15px;
+      height: 110px;
+      resize: none;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: #ff2a2a;
+    }
+
+    .btn-submit {
+      background: #ff0000;
+      color: #f0eeee;
+      border: none;
+      padding: 14px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 42, 42, 0.4);
+      transition: 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      #home, #about, .contact-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .stats-container, .cta-buttons {
+        justify-content: center;
+      }
+      .about-image-container, .hero-visual {
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="logo">Lim.<span></span></div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Gallery</a></li>
+        <li><a href="#skills">Gear</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <div class="hero-content">
+      <div class="greeting">Magandang Buhay! </div>
+      <h1 class="headline">Hello everyone, <span>I'm Limuel</span></h1>
+      <p class="description">
+        Specializing in wedding narratives, candid street photography, and timeless portraits. Turning real, raw moments into lasting visual memories.
+      </p>
+
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Ocassion Covered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2+</div>
+          <div class="stat-label">Years Shooting</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <a href="#contact" class="btn-primary">Book a Session &rarr;</a>
+        <a href="#projects" class="btn-secondary">View Portfolio</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="badge badge-top">📸 </div>
+      <img src="limuel1.jpg" alt="Camera Feature" class="hero-image">
+      <div class="badge badge-bottom">✨ https://web.facebook.com/profile.php?id=61589471780154</div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about-image-container">
+      <img src="limuel.jpg" alt="Photographer Profile" class="hero-image">
+    </div>
+    <div class="about-text">
+      <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">About <span>Me</span></h2>
+      <p class="description">
+        Documenting love and life in their purest forms. I turn fleeting moments—whether an intimate wedding vow or a candid city scene—into timeless visual stories.
+      </p>
+
+      <div class="info-card">
+        <div class="info-card-icon">📍</div>
+        <div>
+          <h4>Primary Location</h4>
+          <p>Muntinlupa / Metro Area, Philippines</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-icon">📞</div>
+        <div>
+          <h4>Direct Contact</h4>
+          <p>+63 983 723 8434</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2 class="section-title">My <span>Services</span></h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💒</div>
+        <h3>Wedding Photography</h3>
+        <p>Full ceremony & reception coverage with an eye for candid, emotional moments.</p>
+        <div class="tags">
+          <span class="tag">Pre-Nup</span>
+          <span class="tag">Ceremony</span>
+          <span class="tag">Highlights</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📷</div>
+        <h3>Street & Documentary</h3>
+        <p>Authentic visual stories captured in dynamic urban environments.</p>
+        <div class="tags">
+          <span class="tag">Candid</span>
+          <span class="tag">Monochrome</span>
+          <span class="tag">Urban</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3>Portraits & Toga</h3>
+        <p>Graduation shoots, professional headshots, and editorial portraiture.</p>
+        <div class="tags">
+          <span class="tag">Graduation</span>
+          <span class="tag">Headshots</span>
+          <span class="tag">Creative</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery / Projects Section -->
+<section id="projects">
+    <h2 class="section-title">Selected <span>Work</span></h2>
+    
+    <div class="portfolio-grid">
+
+        <!-- CARD 1 -->
+        <div class="portfolio-card">
+            <img src="amaris.png" alt="Christening" class="portfolio-img" onclick="openModal(this)">>
+            <div class="portfolio-info">
+                <h3>Christening/Birthday/Wedding</h3>
+                <p>Preserving tender moments, family blessings, and the sweet arrival of new life.</p>
+                <div class="tags">
+                    <span class="tag">Wedding</span>
+                    <span class="tag">Golden Hour</span>
+                </div>
+                <a href="album-christening.html" class="view-album-btn">View Full Album →</a>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="portfolio-card">
+            <img src="fyang1.jpg" alt="Toga" class="portfolio-img" onclick="openModal(this)">
+            <div class="portfolio-info">
+                <h3>Toga-Portrait</h3>
+                <p>The future belongs to those who show up and do the work.</p>
+                <div class="tags">
+                    <span class="tag">Future</span>
+                    <span class="tag">Graduation</span>
+                </div>
+                <a href="album-toga.html" class="view-album-btn">View Full Album →</a>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="portfolio-card">
+            <img src="18.jpg" alt="Creative Shots" class="portfolio-img" onclick="openModal(this)">
+            <div class="portfolio-info">
+                <h3>Creative Shots</h3>
+                <p>Every angle holds a mystery; every frame tells an unwritten story.</p>
+                <div class="tags">
+                    <span class="tag">Shine</span>
+                    <span class="tag">Storyteller</span>
+                </div>
+                <a href="album-creative.html" class="view-album-btn">View Full Album →</a>
+            </div>
+        </div>
+
+    </div> <!-- Dito lang dapat isasara ang portfolio-grid, kapag tapos na ang LAHAT ng cards -->
+</section>
+  </section><!-- Lightbox Modal Box -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close-btn">&times;</span>
+  <img class="modal-content" id="fullImage">
+</div>
+
+<script>
+function openModal(imgElement) {
+  var modal = document.getElementById("imageModal");
+  var modalImg = document.getElementById("fullImage");
+  modal.style.display = "flex";
+  modalImg.src = imgElement.src;
+}
+
+function closeModal() {
+  document.getElementById("imageModal").style.display = "none";
+}
+</script>
+
+  <!-- Gear & Editing Skills Section -->
+  <section id="skills">
+    <h2 class="section-title">Gear & <span>Tools</span></h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">📷</div>
+        <div class="skill-info">
+          <h4>Fujifilm - Nikon - Sony</h4>
+          <span>Primary Camera</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <div class="skill-info">
+          <h4>Adobe Lightroom</h4>
+          <span>Color Grading & Culling</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🖼️</div>
+        <div class="skill-info">
+          <h4>Adobe Photoshop</h4>
+          <span>Retouching & Layouts</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-info">
+          <h4>Off-Camera Flash</h4>
+          <span>Lighting & Modifiers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Get in <span>Touch</span></h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p>Planning a wedding, need graduation portraits, or want to collaborate on a creative project? Drop a message below!</p>
+        
+        <div class="contact-card">
+          <h4>📱 Contact / WhatsApp / Viber</h4>
+          <span>+63 938 723 8434</span>
+        </div>
+
+        <div class="contact-card">
+          <h4>📍 Location</h4>
+          <span>Manila, Philippines</span>
+        </div>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/mdenpnvp" method="POST">
+  <div class="form-group">
+    <input type="text" name="name" placeholder="Your Name" required>
+  </div>
+  <div class="form-group">
+    <input type="email" name="email" placeholder="Your Email" required>
+  </div>
+  <div class="form-group">
+    <textarea name="message" placeholder="Tell me about your photoshoot or event date..." required></textarea>
+  </div>
+  <button type="submit" class="btn-submit">Send Booking Inquiry</button>
+</form>
+    </div>
+  </section>
+
+</body>
+</html>
