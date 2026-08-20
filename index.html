@@ -370,13 +370,25 @@
 }
 
 .portfolio-card {
-    background: #121212;
-    border: 1px solid #222;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: 0.3s ease;
+  background: #121212;
+  border: 1px solid #222;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
-
+        
+.portfolio-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px; /* Adjust ayon sa nais na espasyo */
+}
+.portfolio-info a {
+  margin-top: auto;
+  align-self: flex-start;
+}
 .portfolio-card:hover {
     border-color: #ff2a2a;
     box-shadow: 0 0 20px rgba(255, 42, 42, 0.2);
